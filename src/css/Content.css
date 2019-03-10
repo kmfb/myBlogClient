@@ -1,0 +1,24 @@
+.content {
+    margin-right: 10rem;
+}
+
+.articles-container {
+    width: 70rem;
+    margin: 0 auto;
+}
+
+.articles-container article {
+    padding: 4.5rem 0;
+}
+
+.articles-container article h2 {
+    margin: 0;
+}
+
+.articles-container article:not(:last-child) {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.articles-container article .post-date {
+    color: #5c6b72;
+}

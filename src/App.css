@@ -1,0 +1,11 @@
+body {
+    background-color: #fff;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #1e3e3f;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    text-size-adjust: 100%;
+}
