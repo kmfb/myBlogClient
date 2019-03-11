@@ -1,10 +1,13 @@
 import React, {Component} from "react";
-import {Link, Route} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 
 
-class Article extends Component {
-
+class ArticleList extends Component {
+  constructor (props) {
+    super(props)
+    console.log(props)
+  }
 
   formatTime(time) {
     let t = new Date(time)
@@ -49,4 +52,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default ArticleList;

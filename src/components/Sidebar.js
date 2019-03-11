@@ -6,7 +6,7 @@ class Sidebar extends Component {
   render() {
     return (
       <aside className="sidebar">
-        <NavLink to="/Content">Home</NavLink>
+        <NavLink to="/Home">Home</NavLink>
         <NavLink to="/About">About</NavLink>
       </aside>
     )

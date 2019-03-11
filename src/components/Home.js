@@ -1,12 +1,11 @@
 import React, {Component} from "react";
-import ContentArticle from './ContentArticle'
+import { allArticles } from '../util/api'
+import ContentArticle from './HomeList'
 import "../css/Content.css";
 
-const PATH_BASE = "http://localhost:5000/api/v1";
-const PATH_SEARCH = "/articles";
-const url = PATH_BASE + PATH_SEARCH;
 
-class Content extends Component {
+
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,23 +13,18 @@ class Content extends Component {
     };
   }
 
-  setArticles(data) {
-    this.setState({
-      articles: data
-    });
-  }
 
-  fetchArticles() {
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          this.setArticles(data);
-          // console.log(this.state.articles)
-        });
+
+  fetchAllArticles() {
+    allArticles().then((data) => {
+      this.setState({
+        articles: data
+      });
+    })
   }
 
   componentDidMount() {
-    this.fetchArticles();
+    this.fetchAllArticles();
   }
 
   render() {
@@ -57,4 +51,4 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export default Home;
