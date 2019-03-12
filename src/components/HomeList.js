@@ -1,27 +1,12 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom"
-
+import {formatTime} from '../util/common'
 
 
 class ArticleList extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     console.log(props)
-  }
-
-  formatTime(time) {
-    let t = new Date(time)
-    let year = t.getFullYear()
-    let month = t.getMonth() + 1
-    let day = t.getDate()
-    if (month <= 9) {
-      month = '0' + month
-    }
-    if (day <= 9) {
-      day = '0' + day
-    }
-    let formatTime = `${year}-${month}-${day}`
-    return formatTime
   }
 
 
@@ -32,13 +17,17 @@ class ArticleList extends Component {
 
     const ArticleList = articles.map(post =>
         <article key={post.id}>
-          <Link to={`${match.url}/${post.id}`}>
-            <header className="post-title"><h2>{post.title}</h2></header>
-          </Link>
-          <div className="post-date">{this.formatTime(post.date)}</div>
+
+          <header className="post-title">
+            <h2>
+              <Link to={`${match.url}/${post.id}`}>{post.title}</Link>
+            </h2>
+          </header>
+
+          <div className="post-date">{formatTime(post.date)}</div>
           <div className="post-summery">{post.summery}</div>
           <div className="post-tag">{post.tags}</div>
-      </article>)
+        </article>)
 
     return (
         <div>

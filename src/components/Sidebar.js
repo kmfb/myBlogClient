@@ -6,8 +6,19 @@ class Sidebar extends Component {
   render() {
     return (
       <aside className="sidebar">
-        <NavLink to="/Home">Home</NavLink>
-        <NavLink to="/About">About</NavLink>
+        <div className="blog-logo">
+          <img src={`${process.env.PUBLIC_URL}/assets/fish.png`} alt=""/>
+        </div>
+        <ul>
+          <li>
+            <NavLink to="/Home">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/About">About</NavLink>
+          </li>
+        </ul>
+
+
       </aside>
     )
   }

@@ -1,8 +1,28 @@
-.sidebar {
+aside {
     position: fixed;
     right: 0;
     top: 0;
     bottom: 0;
     width: 10rem;
-    background: yellow;
+    padding-top: 3rem;
 }
+
+
+
+
+aside ul li {
+    text-align: center;
+    padding: 1rem;
+}
+
+aside ul li a{
+    text-decoration: none;
+    color:#172d3e;
+}
+aside .blog-logo {
+    text-align: center;
+}
+aside .blog-logo img {
+    width: 3.8rem;
+}
+

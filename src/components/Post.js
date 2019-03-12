@@ -1,5 +1,6 @@
 import React , { Component } from 'react'
 import { article } from '../util/api'
+import { formatTime } from '../util/common'
 
 class Post extends Component {
   constructor (props) {
@@ -35,7 +36,7 @@ class Post extends Component {
                 <h2>{article.title}</h2>
               </div>
               <div className="post-date">
-                <div>{article.date}</div>
+                <div>{formatTime(article.date)}</div>
               </div>
               <div className="post-content">
                 <div>{article.content}</div>

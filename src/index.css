@@ -1,5 +1,23 @@
-body {
+html {
+  font-size: 62.5%;
+}
+
+body,ul {
   margin: 0;
   padding: 0;
+}
+
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: #1e3e3f;
+  text-decoration: none;
 }
 

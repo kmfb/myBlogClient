@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { allArticles } from '../util/api'
-import ContentArticle from './HomeList'
+import HomeList from './HomeList'
+import HomeBanner from './HomeBanner'
 import "../css/Content.css";
 
 
@@ -38,9 +39,9 @@ class Home extends Component {
     return (
 
         <main className="content">
-
-          <div className="articles">
-            <ContentArticle
+          <HomeBanner />
+          <div className="articles" id="homeList">
+            <HomeList
                 articles={this.state.articles}
                 match={match}
             />
