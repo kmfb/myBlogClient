@@ -21,7 +21,7 @@ class Post extends Component {
 
   render () {
     console.log(this.props)
-    const { match } = this.props
+
     const { article } = this.state
 
     if (!article) {

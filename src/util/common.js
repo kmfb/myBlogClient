@@ -13,4 +13,35 @@ const formatTime = (time) => {
   return formatTime
 }
 
-export { formatTime }
+const getNow = () => {
+  const now = Date.now();
+  const date = new Date(now)
+  let yy = date.getFullYear()
+  let mm = date.getMonth() + 1
+  let d = date.getDate()
+  let h = date.getHours()
+  let m = date.getMinutes()
+  let s = date.getSeconds()
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+  if (d < 10) {
+    d = '0' + d
+  }
+  if (h < 10) {
+    h = '0' + h
+  }
+  if (m < 10) {
+    m = '0' + m
+  }
+  if (s < 10) {
+    s = '0' + s
+  }
+  let dateStr = `${yy}-${mm}-${d} ${h}:${m}:${s}`
+  return dateStr
+}
+
+
+
+
+export { formatTime, getNow }

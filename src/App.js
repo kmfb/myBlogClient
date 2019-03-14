@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import Home from './components/Home';
 import About from './components/About'
 import Post from './components/Post'
+import Publish from './components/Publish'
 import './App.css'
 
 
@@ -17,10 +18,10 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route path='/Home' component={Home} exact/>
-              <Route path='/Home/:id' component={Post} exact/>
-              <Route path='/About' component={About} />
-
+              <Route path='/home' component={Home} exact/>
+              <Route path='/home/:id' component={Post} exact/>
+              <Route path='/about' component={About} />
+              <Route path='/publish' component={Publish} />
             </Switch>
 
             <Sidebar />
