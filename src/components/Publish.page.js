@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getNow } from "../util/common";
 import { addArticle } from "../util/api";
 
-class Publish extends Component{
+class PublishPage extends Component{
   constructor (props) {
     super(props)
     this.state = {
@@ -114,4 +114,4 @@ class Publish extends Component{
 }
 
 
-export default Publish
+export default PublishPage

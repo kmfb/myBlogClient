@@ -1,6 +1,10 @@
 import React , { Component } from 'react'
 import { article } from '../util/api'
 import { formatTime } from '../util/common'
+import MarkdownIt from 'markdown-it'
+
+
+const md = new MarkdownIt()
 
 class Post extends Component {
   constructor (props) {
@@ -10,7 +14,7 @@ class Post extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     article(this.props.match.params.id)
         .then((data) => {
           this.setState({
@@ -18,6 +22,11 @@ class Post extends Component {
           })
         })
   }
+
+  createMarkup () {
+    return {__html: md.render(this.state.article.content) }
+  }
+
 
   render () {
     console.log(this.props)
@@ -39,7 +48,7 @@ class Post extends Component {
                 <div>{formatTime(article.date)}</div>
               </div>
               <div className="post-content">
-                <div>{article.content}</div>
+                <div dangerouslySetInnerHTML={this.createMarkup()} ></div>
               </div>
             </article>
           </div>
