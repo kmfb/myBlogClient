@@ -31,22 +31,25 @@ class LoginPage extends Component {
     event.preventDefault()
     login(this.state)
         .then(res => {
-          let { code } = res.data
+          let { code, token } = res.data
           if (code === 403) {
-
-              this.props.history.push('/home')
-
-
-
+              this.toHome()
           } else if (code === 200) {
             auth.login(() => {
-              this.props.history.push('/publish')
+              localStorage.setItem('token', token)
+              this.toPublish()
             })
-
           }
         })
   }
 
+  toHome () {
+    this.props.history.push('/home')
+  }
+
+  toPublish() {
+    this.props.history.push('/publish')
+  }
 
   render() {
     return (
