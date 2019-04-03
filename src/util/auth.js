@@ -1,4 +1,4 @@
-import { validateToken } from '../util/api'
+import { validateToken } from './api'
 
 class Auth {
   constructor () {

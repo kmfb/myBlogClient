@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { login } from "../util/api";
-import auth from './auth'
+import auth from '../util/auth'
 
 class LoginPage extends Component {
   constructor(props) {

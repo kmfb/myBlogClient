@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Sidebar from './components/Sidebar';
-import Home from './components/Home';
-import About from './components/About'
-import Post from './components/Post'
-import LoginPage from './components/Login.page'
-import PublishPage from './components/Publish.page'
-import { ProtectedRoute } from './components/protected.route'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import Sidebar from './pages/home/Sidebar';
+import Home from './pages/home/Home';
+import About from './routes/About.page'
+import PostPage from './routes/Post.page'
+import LoginPage from './routes/Login.page'
+import PublishPage from './routes/Publish.page'
+import { ProtectedRoute } from './util/protected.route'
 import './App.css'
 
 
@@ -21,9 +21,10 @@ class App extends Component {
           <div>
             <Switch>
               <Route path='/home' component={Home} exact/>
-              <Route path='/home/:id' component={Post} exact/>
+              <Route path='/home/:id' component={PostPage} exact/>
               <Route path='/about' component={About} />
               <Route path='/login' component={LoginPage} />
+              <Redirect path="/" to={{pathname: '/home'}} />
               <ProtectedRoute path='/publish' component={PublishPage} />
             </Switch>
 

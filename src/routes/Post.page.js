@@ -6,7 +6,7 @@ import MarkdownIt from 'markdown-it'
 
 const md = new MarkdownIt()
 
-class Post extends Component {
+class PostPage extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -57,4 +57,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default PostPage;

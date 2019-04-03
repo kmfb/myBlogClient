@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom"
-import {formatTime} from '../util/common'
+import {formatTime} from '../../util/common'
 
 
 class ArticleList extends Component {

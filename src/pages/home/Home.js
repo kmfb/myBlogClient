@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import { allArticles } from '../util/api'
+import { allArticles } from '../../util/api'
 import HomeList from './HomeList'
 import HomeBanner from './HomeBanner'
-import "../css/Content.css";
+import "../../css/Content.scss";
 
 
 

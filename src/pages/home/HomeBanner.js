@@ -7,7 +7,7 @@ const HomeBanner = () => {
           <img src={`${process.env.PUBLIC_URL}/assets/overlay-hero.png`} alt=""/>
         </div>
         <div className="home-banner-video">
-          <video autoPlay loop muted>
+          <video autoPlay loop muted x5-video-player-type="h5">
             <source src={`${process.env.PUBLIC_URL}/assets/ocean.mp4`}/>
           </video>
           <div className="video-overlay"> </div>
@@ -16,6 +16,10 @@ const HomeBanner = () => {
           <a href="#homeList">
             <img src={`${process.env.PUBLIC_URL}/assets/hook.png`} alt=""/>
           </a>
+        </div>
+        <div className="home-banner-text">
+          <div className="home-banner-text-inner">Boat House</div>
+
         </div>
       </div>
   )
