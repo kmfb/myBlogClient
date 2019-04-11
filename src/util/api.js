@@ -1,4 +1,4 @@
-const PATH_BASE = "http://104.237.157.210:5000/api/v1";
+const PATH_BASE = "http://172.105.223.113:5000/api/v1";
 const QUERY_All = "/articles";
 const QUERY_BY_ID = "/article/";
 const ADD_PATH = '/article';
