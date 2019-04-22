@@ -1,28 +1,50 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Route, Redirect} from 'react-router-dom'
 import auth from './auth'
 
-export const ProtectedRoute = ({component: Component, ...rest}) => {
-  return (
-      <Route {...rest}
-          render={(props) => {
-              if (auth.isAuthenticated()) {
 
-                return <Component {...props}/>
-              } else {
+export class ProtectedRoute extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: true,
+      authenticated: false
+    }
+  }
 
-                return <Redirect to={
-                  {
-                    pathname: '/',
-                    state: {
-                      from: props.location
-                    }
-                  }
-                }/>
-              }
+  componentDidMount() {
 
-          }}
-      />
-  )
-};
+    auth.isAuthenticated()
+        .then((authenticated) => {
+          this.setState({
+            loading: false,
+            authenticated
+          })
+    })
+
+  }
+
+  render() {
+    const {component: Component, ...rest} = this.props
+    return (
+        <Route
+            {...rest}
+            render={props =>
+                this.state.authenticated ? (
+                    <Component {...props} />
+                ) : (
+                    this.state.loading ? (
+                        <div>LOADING</div>
+                    ) : (
+                        <Redirect to={{pathname: '/login', state: {from: this.props.location}}}/>
+                    )
+                )
+            }
+        />
+    )
+  }
+
+}
+
+
 

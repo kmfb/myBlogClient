@@ -1,18 +1,7 @@
 import { validateToken } from './api'
 
 class Auth {
-  constructor () {
-    let token = localStorage.getItem('token')
-    validateToken({token: token})
-        .then((res) => {
-          console.log(res.data.code, 'data')
-          if (res.data.code === 200) {
-            console.log('enter')
-            this.authenticated = true
-          }
-        })
-    this.authenticated = false
-  }
+
 
   login (cb) {
     this.authenticated = true
@@ -26,8 +15,14 @@ class Auth {
 
   isAuthenticated() {
 
+    let token = localStorage.getItem('token')
+    return validateToken({ token }).then((data) => {
+      if (data.code === 200) {
+        return this.authenticated = true
+      }
+      return this.authenticated = false
 
-    return this.isAuthenticated
+    })
 
 
   }

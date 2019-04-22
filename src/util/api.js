@@ -1,4 +1,4 @@
-const PATH_BASE = "http://172.105.223.113:5000/api/v1";
+const PATH_BASE = "http://45.79.150.188:5000/api/v1";
 const QUERY_All = "/articles";
 const QUERY_BY_ID = "/article/";
 const ADD_PATH = '/article';
@@ -60,20 +60,20 @@ const login = (data) => {
       })
 }
 
-const validateToken = (data) => {
-  return fetch(tokenUrl, {
+const validateToken = async (data) => {
+  console.log(data, 'token data')
+  const response = await fetch(tokenUrl, {
     method: 'POST', // or 'PUT'
-    body: JSON.stringify(data), // data can be `string` or {object}!
+    body: data ? JSON.stringify(data) : '', // data can be `string` or {object}!
     headers: new Headers({
       'Content-Type': 'application/json'
     })
   })
-      .then(res => {
-        return res.json()
-      })
-      .then(data => {
-        return data
-      })
+
+  const res = await response.json()
+
+  return res.data
+
 }
 
 export {allArticles, article, addArticle, login, validateToken}
