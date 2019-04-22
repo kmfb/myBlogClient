@@ -7,6 +7,7 @@ import PostPage from './routes/Post.page'
 import LoginPage from './routes/Login.page'
 import PublishPage from './routes/Publish.page'
 import { ProtectedRoute } from './util/protected.route'
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css'
 
 
@@ -19,6 +20,7 @@ class App extends Component {
 
         <BrowserRouter>
           <div>
+            <CssBaseline />
             <Switch>
               <Route path='/home' component={Home} exact/>
               <Route path='/home/:id' component={PostPage} exact/>

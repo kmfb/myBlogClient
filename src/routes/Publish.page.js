@@ -59,8 +59,6 @@ class PublishPage extends Component{
   }
 
 
-
-
   onSubmit (event) {
     event.preventDefault()
 
