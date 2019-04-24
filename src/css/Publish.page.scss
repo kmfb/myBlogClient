@@ -1,0 +1,85 @@
+.form-container,
+.preview-container {
+    width: 50%;
+    height: 100vh;
+}
+.publish-main {
+    width: 94vw;
+    display: flex;
+    .form-container {
+        padding-top: 20px;
+        border-right: 1px solid #d9d9d9;
+        form {
+            height: 100%;
+        }
+        .input-title {
+            width: 100%;
+            padding: 0 80px 10px 40px;
+            margin-bottom: 0;
+            border: none;
+            font-size: 30px;
+            font-weight: 400;
+            line-height: 30px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            color: #595959;
+            background-color: transparent;
+            outline: none;
+            border-radius: 0;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .toolbar-container {
+            margin: 0;
+            list-style-type: none;
+            background-color: #d9d9d9;
+            border-bottom: 1px solid #ccc;
+
+            li {
+                display: flex;
+                width: 16%;
+                cursor: pointer;
+                align-items: center;
+                color: #595959;
+                padding: 11px 14px;
+                line-height: 17px;
+                font-size: 16px;
+                &:hover {
+                    color: #f2f2f2;
+                    background-color: #595959;
+                }
+            }
+        }
+        #text-editor {
+            width: 100%;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            padding: 40px 40px 80px;
+            margin-bottom: 0;
+            resize: none;
+            color: #333;
+            background-color: transparent;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 30px;
+            border: none;
+            outline: none;
+            -webkit-appearance: none;
+            overflow: auto;
+        }
+    }
+    .preview-container {
+        position: relative;
+        overflow-y: auto;
+        color: #333;
+        background-color: #fcfaf2;
+        padding: 40px 40px 80px;
+        font-size: 16px;
+        line-height: 1.75;
+    }
+}
+
+

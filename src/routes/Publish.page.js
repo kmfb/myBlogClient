@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getNow } from "../util/common";
 import { addArticle } from "../util/api";
+import Publish from '@material-ui/icons/Publish';
+import '../css/Publish.page.scss'
 
 class PublishPage extends Component{
   constructor (props) {
@@ -76,35 +78,42 @@ class PublishPage extends Component{
 
   render () {
     return (
-        <main>
+        <main className="publish-main">
           <div className="form-container">
             <form action="">
               <div className="form-item-container">
-                <label>标题：</label><input type="text" onChange={this.onTitleChange}/>
+
+                <input type="text" onChange={this.onTitleChange} className="input-title"/>
               </div>
+              <ul className="toolbar-container">
+                <li>
+                  <Publish></Publish>
+                  <div>发布文章</div>
+                </li>
+              </ul>
               <div className="form-item-container">
-                <label>内容：</label>
-                <textarea name="" id="" cols="30" rows="10" onChange={this.onContentChange}>
+                {/*<label>内容：</label>*/}
+                <textarea name="" id="text-editor" cols="30" rows="10" onChange={this.onContentChange}>
 
                 </textarea>
               </div>
-              <div className="form-item-container">
-                <label>总结：</label>
-                <textarea name="" id="" cols="30" rows="10" onChange={this.onSummeryChange}>
+              {/*<div className="form-item-container">*/}
+              {/*  <label>总结：</label>*/}
+              {/*  <textarea name="" id="" cols="30" rows="10" onChange={this.onSummeryChange}>*/}
 
-                </textarea>
-              </div>
-              <div className="form-item-container">
-                <label>标签：</label><input type="text" onChange={this.onTagsChange} />
-              </div>
-              <div className="form-item-container">
-                <label>类别：</label><input type="text" onChange={this.onTypeChange} />
-              </div>
-
-
-
-              <button type="submit" onClick={this.onSubmit}>提交</button>
+              {/*  </textarea>*/}
+              {/*</div>*/}
+              {/*<div className="form-item-container">*/}
+              {/*  <label>标签：</label><input type="text" onChange={this.onTagsChange} />*/}
+              {/*</div>*/}
+              {/*<div className="form-item-container">*/}
+              {/*  <label>类别：</label><input type="text" onChange={this.onTypeChange} />*/}
+              {/*</div>*/}
+              {/*<button type="submit" onClick={this.onSubmit}>提交</button>*/}
             </form>
+          </div>
+          <div className="preview-container">
+
           </div>
         </main>
     )
