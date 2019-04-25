@@ -8,7 +8,10 @@ const HomeBanner = () => {
         </div>
         <div className="home-banner-video">
           <video autoPlay loop muted x5-video-player-type="h5">
-            <source src={`${process.env.PUBLIC_URL}/assets/ocean.mp4`}/>
+            <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.mp4" type="video/mp4" />
+              <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.ogv" type="video/ogg" />
+                <source src="http://source.zhwangart.com/hexo/themes/ocean/ocean.webm" type="video/webm" />
+                  <p>Your user agent does not support the HTML5 Video element.</p>
           </video>
           <div className="video-overlay"> </div>
         </div>
