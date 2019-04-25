@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Sidebar from './pages/home/Sidebar';
 import Home from './pages/home/Home';
 import About from './routes/About.page'
@@ -22,6 +22,7 @@ class App extends Component {
           <div>
             <CssBaseline />
             <Switch>
+              <Route exact path="/" component={() => <Redirect to="/home" />}/>
               <Route path='/home' component={Home} exact/>
               <Route path='/home/:id' component={PostPage} exact/>
               <Route path='/about' component={About} />

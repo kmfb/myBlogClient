@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+
+html,
+body,
+.main,
+.input-area, 
+.output-area {
+ height: 100%;
+}
+
+.main {
+    display: flex;
+}
+
+
+.input-area, 
+.output-area {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid #e6e6e6;
+    width: 50%;
+    padding-left: 8px;
+    padding-top: 5px;
+    vertical-align: top;
+}
+
+textarea {
+    resize: none;
+}
+
+blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+}
+
+pre {
+    margin: 10px 0;
+}
+
+pre, code {
+    background: #e6e6e6;
+    padding: 1px 5px;
+}
+

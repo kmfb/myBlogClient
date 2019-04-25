@@ -20,6 +20,7 @@ class ArticleList extends Component {
 
           <header className="post-title">
             <h2>
+
               <Link to={`${match.url}/${post.id}`}>{post.title}</Link>
             </h2>
           </header>

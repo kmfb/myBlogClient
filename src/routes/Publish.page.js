@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { getNow } from "../util/common";
+import { getNow, Markdown } from "../util/common";
 import { addArticle } from "../util/api";
 import Publish from '@material-ui/icons/Publish';
 import '../css/Publish.page.scss'
+
+const markdown = new Markdown()
 
 class PublishPage extends Component{
   constructor (props) {
@@ -14,6 +16,7 @@ class PublishPage extends Component{
       tags: '',
       type: '',
       date: '',
+      preview: '',
     }
     this.onTitleChange = this.onTitleChange.bind(this)
     this.onContentChange = this.onContentChange.bind(this)
@@ -25,23 +28,30 @@ class PublishPage extends Component{
 
   onTitleChange (event) {
     let { value } = event.target
+
+
+
     this.setState({
-      title: value
+      title: value,
     })
 
   }
 
   onContentChange (event) {
     let { value } = event.target
+    let preview = markdown.compile(value)
     this.setState({
-      content: value
+      content: value,
+      preview,
     })
 
   }
   onSummeryChange (event) {
     let { value } = event.target
+
+
     this.setState({
-      summery: value
+      summery: value,
     })
 
   }
@@ -70,10 +80,19 @@ class PublishPage extends Component{
       date: now,
     }, () => {
       addArticle(this.state).then((res) => {
-        console.log(res)
+        this.props.history.push('/home')
       })
     })
 
+  }
+
+  createTitlePreview () {
+    return `<h1>${this.state.title}</h1>`
+  }
+
+  createMarkup () {
+    let title = this.createTitlePreview()
+    return {__html: title + this.state.preview};
   }
 
   render () {
@@ -86,7 +105,7 @@ class PublishPage extends Component{
                 <input type="text" onChange={this.onTitleChange} className="input-title"/>
               </div>
               <ul className="toolbar-container">
-                <li>
+                <li onClick={this.onSubmit}>
                   <Publish></Publish>
                   <div>发布文章</div>
                 </li>
@@ -112,7 +131,10 @@ class PublishPage extends Component{
               {/*<button type="submit" onClick={this.onSubmit}>提交</button>*/}
             </form>
           </div>
-          <div className="preview-container">
+          <div
+              className="preview-container"
+              dangerouslySetInnerHTML={this.createMarkup()}
+          >
 
           </div>
         </main>
@@ -122,3 +144,7 @@ class PublishPage extends Component{
 
 
 export default PublishPage
+
+
+
+

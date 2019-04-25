@@ -30,6 +30,7 @@ const styles = theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+
   },
   avatar: {
     margin: theme.spacing.unit,
@@ -74,6 +75,7 @@ class LoginPage extends Component {
     login(this.state)
         .then(res => {
           let { code, token } = res.data
+          console.log(res.data)
           if (code === 403) {
               this.toHome()
           } else if (code === 200) {
@@ -121,6 +123,7 @@ class LoginPage extends Component {
                 <Input id="password"
                        name="password"
                        autoComplete="password"
+                       type="password"
                        autoFocus
                        onChange={this.handlePassWordChange}/>
               </FormControl>

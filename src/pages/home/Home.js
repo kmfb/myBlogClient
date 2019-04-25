@@ -18,8 +18,9 @@ class Home extends Component {
 
   fetchAllArticles() {
     allArticles().then((data) => {
+      let dataReversed = data.reverse()
       this.setState({
-        articles: data
+        articles: dataReversed
       });
     })
   }
